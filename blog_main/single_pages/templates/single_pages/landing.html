@@ -1,7 +1,29 @@
+
+
 {% extends 'blog/base.html' %}
+
+
+
 {% block title %}
     <title>홈페이지 대문</title>
+
 {% endblock %}
+
 {% block main_area %}
-    <h1>대문페이지!</h1>
+    <body style="height: 100%">
+      <div>
+        <div>
+        <h1 style="text-align: center; margin-top: 150px; font-size: 90px">
+         <span style="color:#4285f4;">J</span><span style="color:#ea4335;">a</span><span style="color:#fbbc05;">y</span><span style="color:#4285f4;">g</span><span style="color:#34a853;">l</span><span style="color:#ea4335;">e</span>
+        </h1>
+       </div>
+     <form action="https://www.google.com/search" method="GET">
+          <div class="mx-auto mt-5 search-bar input-group mb-3">
+            <input name="q" style="width: 500px; text-align: center" type="text" class="form-control rounded-pill" placeholder="Google 검색 또는 URL 입력" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+          </div>
+         </div>
+        </form>
+    </div>
+    </body>
 {% endblock %}
