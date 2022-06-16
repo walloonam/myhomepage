@@ -22,7 +22,8 @@
 
 <div style="z-index: 3; float: left">
     {% include 'blog/sidebar.html' %}
-    </div>
+</div>
+
 <div style="z-index: 2">
     {% include 'blog/navbar.html' %}
 </div>
@@ -65,7 +66,7 @@
 
                 {% endblock %}
             </div>
-
+{% comment %}
             <div class="col-md-4 col-lg-3">
                 <!-- Search Widget -->
                 <div class="card my-4">
@@ -100,12 +101,17 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+            {% endcomment %}
+
         </div>
+
     </div>
-    <div style="z-index: 1">
-    {% include 'blog/footer.html' %}
-    </div>
+{% comment %}
+ {% include 'blog/footer.html' %}
+{% endcomment %}
+</div>
 </div>
 
 
