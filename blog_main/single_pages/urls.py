@@ -5,4 +5,5 @@ urlpatterns = [
     path('about_me/', views.about_me),
     path('', views.landing),
     path('index/', views.index),
+    path('todo/', views.todolist),
 ]

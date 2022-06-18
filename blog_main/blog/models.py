@@ -75,3 +75,10 @@ class Comment(models.Model):
 
     def get_absolute_url(self):
         return f'{self.post.get_absolute_url()}#comment-{self.pk}'
+
+
+#<----todolist만들기 모델---->
+class todo_list(models.Model):
+    todo = models.CharField(max_length=50, unique=True)
+    todo_author = models.ForeignKey(User, null=True, blank=True ,on_delete=models.CASCADE)
+

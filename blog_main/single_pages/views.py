@@ -17,3 +17,9 @@ def index(request):
         request,
         'single_pages/index.html'
     )
+
+def todolist(request):
+    return render(
+        request,
+        'single_pages/todolist.html'
+    )
