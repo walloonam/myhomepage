@@ -1,8 +1,18 @@
-<p>Are you sure you want to delete "{{item}}"?</p>
+{% extends 'blog/base.html' %}
+{% block title %}
+    <title> todolist delete </title>
+{% endblock %}
+{% block style %} {% endblock %}
 
-<a href="../../" >Cancel</a>
+{% block main_area %}
+<div class="center-column">
+    <p>Are you sure you want to delete "{{ item }}"?</p>
 
-<form method="POST" action="">
-	{% csrf_token %}
-	<input type="submit" name="Confirm">
-</form>
+    <a href="../../" >Cancel</a>
+
+    <form method="POST" action="">
+	    {% csrf_token %}
+      <input type="submit" name="Confirm">
+    </form>
+</div>
+{% endblock %}
