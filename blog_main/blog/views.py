@@ -4,8 +4,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
-from .models import Post, Category, Tag, Comment
-from .forms import CommentForm
+from .models import Post, Category, Tag, Comment, Task
+from .forms import CommentForm, TaskForm
 
 
 class PostList(ListView):
@@ -106,3 +106,40 @@ def new_comment(request, pk):
             return redirect(post.get_absolute_url())
     else:
          raise PermissionDenied
+
+def todo(request):
+    tasks = Task.objects.all()
+
+    form = TaskForm()
+
+    if request.method =='POST':
+        form=TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('/blog/todo/')
+
+    context = {'tasks': tasks, 'form':form}
+    return render(request, 'todolist/todolist.html', context)
+
+def updatTask(request, pk):
+
+    task = Task.objects.get(id=pk)
+
+    form = TaskForm(instance=task)
+
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+        return redirect('/blog/todo/')
+
+    context={'form':form }
+
+
+    return render(request, 'todolist/update.html', context)
+
+def deleteTask(request, pk):
+    item = Task.objects.get(id=pk)
+
+    context = {'item':item}
+    return render(request, 'todolist/delete.html')

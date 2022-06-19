@@ -78,7 +78,10 @@ class Comment(models.Model):
 
 
 #<----todolist만들기 모델---->
-class todo_list(models.Model):
-    todo = models.CharField(max_length=50, unique=True)
-    todo_author = models.ForeignKey(User, null=True, blank=True ,on_delete=models.CASCADE)
+class Task(models.Model):
+	title = models.CharField(max_length=200)
+	complete = models.BooleanField(default=False)
+	created = models.DateTimeField(auto_now_add=True)
 
+	def __str__(self):
+		return self.title

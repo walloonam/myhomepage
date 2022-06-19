@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+    <title> todolist</title>
+{% endblock %}
+{% block style %}
+
+{% endblock %}
+{% block main_area %}
+
+<h3>
+    To DO
+</h3>
+    <form method="Post" action="/blog/todo/">
+    {% csrf_token %}
+     {{form.title}}
+        <input type="submit" name="CreateTask">
+    </form>
+    {% for task in tasks %}
+        <div>
+        <a href="update/{{ task.id }}">Update</a>
+        <a href="delete/{{ task.id }}">Delete</a>
+        <p>{{ task }}</p>
+        </div>
+
+    {% endfor %}
+{% endblock %}

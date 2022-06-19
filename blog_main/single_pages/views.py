@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
 
 # Create your views here.
+
+
+
 
 def about_me(request):
     return render(
@@ -12,14 +16,5 @@ def about_me(request):
 def landing(request):
     return render(request, 'single_pages/landing.html')
 
-def index(request):
-    return render(
-        request,
-        'single_pages/index.html'
-    )
-
-def todolist(request):
-    return render(
-        request,
-        'single_pages/todolist.html'
-    )
+def todo(request):
+    return render(request, 'single_pages/../blog/templates/todolist/todolist.html')

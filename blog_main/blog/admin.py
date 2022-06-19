@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 from django.contrib import admin
-from .models import Post, Category, Tag, Comment
+from .models import Post, Category, Tag, Comment, Task
 from markdownx.admin import MarkdownxModelAdmin
 
 admin.site.register(Post, MarkdownxModelAdmin)
@@ -17,3 +17,5 @@ class TagAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug':('name',)}
 
 admin.site.register(Tag, TagAdmin)
+
+admin.site.register(Task)
